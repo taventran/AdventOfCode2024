@@ -1,12 +1,19 @@
-use std::fs;
+use std::fs::File;
+use std::io::{self, BufRead};
 
-fn bubble_sort(vec<i32> list1, vec<i32> list2) -> vec<i32> {
-
-}
+//fn bubble_sort(Vec<i32> list1, Vec<i32> list2) -> Vec<i32> {
+//
+//}
 
 fn main() {
-    let input: String = fs::read_to_string("input.txt")
-        .expect("Could not read file");
-
-    println!("{input}")
+    let file = File::open("input.txt").expect("Could not read file");
+    let reader = io::BufReader::new(file);
+    let mut list1: Vec<i32>;
+    let mut list2: Vec<i32>;
+    for line in reader.lines() {
+        let temp = line.expect("fail clone").clone().split(' ');
+        for num in temp {
+            println!("{}", num)
+        }
+    }
 }
