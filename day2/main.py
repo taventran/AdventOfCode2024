@@ -1,9 +1,10 @@
 from typing import List
 
 
-## This function is for part one
+# This function is for part one
 def is_safe(arr: List[int]) -> bool:
-    ## Check decreasing
+    # See if level is compliant with the rules
+    # Check decreasing
     i = 0
     j = 1
 
@@ -22,7 +23,7 @@ def is_safe(arr: List[int]) -> bool:
 
     i = 0
     j = 1
-    ## Check increasing
+    # Check increasing
     while i < len(arr) - 1:
         while j < len(arr):
             if arr[j] > arr[i] and abs(arr[j] - arr[i]) < 4:
@@ -36,8 +37,9 @@ def is_safe(arr: List[int]) -> bool:
     return decreasing or increasing
 
 
-## This function is for part two
+# This function is for part two
 def problem_dampener(arr: List[int]) -> bool:
+    # See if we can skip one element to get level safe
     for skip in range(len(arr)):
         temp_arr = [arr[i] for i in range(len(arr)) if i != skip]
         if is_safe(temp_arr):
