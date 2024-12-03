@@ -1,7 +1,6 @@
 if __name__ == "__main__":
     # Part 1 Dist
     f = open("input.txt")
-
     nums1 = []
     nums2 = []
     for line in f.readlines():
